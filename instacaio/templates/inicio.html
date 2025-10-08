@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% load humanize %}
+
+{% block conteudo %}
+<div id="posts" class="row">
+{% for post in posts %} 
+  <div class="card" style="width: 18rem;">
+    <div class="img" style="display: flex;align-items: center;justify-content: center; border: 1px solid black; background-color: slateblue;"><img src="/media/{{post.imagem}}" class="card-img-top" style="width:fit-content;">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{post.autor}}</h5>
+    <p class="card-text">{{post.conteudo}}</p>
+    <p class="card-text" style="text-align: right;"><small>{{post.data_postagem|naturaltime}}</small></p>
+  </div>
+</div>
+{% endfor %}
+</div>
+{% endblock conteudo %}

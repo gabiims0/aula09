@@ -1,0 +1,17 @@
+<nav>
+    <div style="margin:5px">
+        <a href="{% url 'inicio' %}">Inicio</a>
+        <a href="{% url 'postar' %}">Postar</a>
+        {% if user.is_authenticated %}
+        <form action="{% url "logout" %}" method="POST" class="d-inline">
+            {% csrf_token %}
+            <input type="submit" value="Logout"  class="bg-transparent b-0 text-white" >
+        </form>
+        <div class="d-inline" href="#">{{user}}</div>
+        {% else %}
+            <a href="{% url "login" %}">Login</a>
+            <a href="{% url "signup" %}">Cadastro</a>
+        {% endif %}
+
+    </div>
+</nav>

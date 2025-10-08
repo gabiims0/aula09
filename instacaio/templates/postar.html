@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+{% block conteudo %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ formulario|crispy }}
+    <input type="submit" value="Postar">
+</form>
+
+{% if form.errors %}
+  <div style="color: red;">
+    <h4>Erros encontrados:</h4>
+    {{ form.errors }}
+  </div>
+{% endif %}
+
+{% endblock conteudo %}
